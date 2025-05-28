@@ -1,6 +1,15 @@
 twig:
     file_name_pattern: '*.twig'
+    default_path: '%kernel.project_dir%/templates'
+    globals:
+        app_debug: '%kernel.debug%'
+        frontend_url: '%env(FRONTEND_URL)%'
 
 when@test:
     twig:
         strict_variables: true
+
+when@dev:
+    twig:
+        globals:
+            frontend_url: 'http://localhost:5173'

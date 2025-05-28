@@ -7,16 +7,26 @@
 			{% endblock %}
 		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
-		{% if app.debug %}
-			 <script type="module" src="http://localhost:5173/@vite/client"></script>
-			 <script type="module" src="http://localhost:5173/main.js"></script>
-		{% else %}
-			{% set manifest = asset('vite/manifest.json')|file_get_contents|json_decode %}
-			{% set main = manifest['main.js'] %}
 
-			<link
-			rel="stylesheet" href="{{ asset('vite/' ~ main.css[0]) }}">
-		 <script type="module" src="{{ asset('vite/' ~ main.file) }}"></script>
+		{% if vite_running %}
+			 <script type="module" src="http://localhost:5173/@vite/client"></script>
+			 <script type="module" src="http://localhost:5173/assets/src/main.js"></script>
+			<link rel="stylesheet" href="http://localhost:5173/assets/src/style.scss">
+		{% else %}
+			{% set manifest = 'build/manifest.json'|file_get_contents|json_decode %}
+			{% set main = manifest['assets/src/main.js'] ?? null %}
+			{% if main %}
+				{% if main.css is defined %}
+					{% for css in main.css %}
+						<link rel="stylesheet" href="{{ asset('build/' ~ css) }}">
+					{% endfor %}
+				{% endif %}
+				 <script type="module" src="{{ asset('build/' ~ main.file) }}"></script>
+			{% endif %}
+			{% set style = manifest['assets/src/style.scss'] ?? null %}
+			{% if style %}
+				<link rel="stylesheet" href="{{ asset('build/' ~ style.file) }}">
+			{% endif %}
 		{% endif %}
 	</head>
 	<body>

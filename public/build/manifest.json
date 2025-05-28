@@ -1,12 +1,19 @@
 {
-  "../src/frontend/main.js": {
-    "file": "assets/main-458ba852.js",
-    "isEntry": true,
-    "src": "../src/frontend/main.js"
+  "assets/src/javascript.svg": {
+    "file": "assets/javascript-8dac5379.svg",
+    "src": "assets/src/javascript.svg"
   },
-  "../src/frontend/style.scss": {
-    "file": "assets/style-9ce0475b.css",
+  "assets/src/main.js": {
+    "assets": [
+      "assets/javascript-8dac5379.svg"
+    ],
+    "file": "assets/main-a2990217.js",
     "isEntry": true,
-    "src": "../src/frontend/style.scss"
+    "src": "assets/src/main.js"
+  },
+  "assets/src/style.scss": {
+    "file": "assets/style-fba91ad0.css",
+    "isEntry": true,
+    "src": "assets/src/style.scss"
   }
 }
