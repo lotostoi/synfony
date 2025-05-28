@@ -1,0 +1,12 @@
+{
+  "../src/frontend/main.js": {
+    "file": "assets/main-458ba852.js",
+    "isEntry": true,
+    "src": "../src/frontend/main.js"
+  },
+  "../src/frontend/style.scss": {
+    "file": "assets/style-9ce0475b.css",
+    "isEntry": true,
+    "src": "../src/frontend/style.scss"
+  }
+}

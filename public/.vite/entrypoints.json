@@ -1,0 +1,24 @@
+{
+  "base": "/vite/",
+  "entryPoints": {
+    "main": {
+      "js": [
+        "http://localhost:5173/vite/src/frontend/main.js"
+      ]
+    },
+    "mainStyles": {
+      "css": [
+        "http://localhost:5173/vite/src/frontend/style.scss"
+      ]
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "8.1.0",
+    8,
+    1,
+    0
+  ],
+  "viteServer": "http://localhost:5173"
+}
